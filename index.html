@@ -420,6 +420,7 @@ async function loadColabs(){
     const rows=j.data||j;
     S.colabs=rows.filter(r=>r['Nome']&&r['Nome'].trim()).map((r,i)=>({
       id:'r'+i,
+      _row: r._row||null,
       nome:(r['Nome']||'').trim(),cargo:(r['Cargo']||'').trim(),
       setor:(r['Setor']||'').trim(),empresa:(r['Empresa']||'').trim(),
       adm:parseDt((r['Admissão']||r['Admissao']||'').trim()),
@@ -434,54 +435,96 @@ async function loadColabs(){
     document.getElementById('lDone').innerHTML='';
   }
 }
-function getPend(c){
-  const d1=c.s1&&c.s1!==''&&c.s1!=='Ainda Não Enviada';
-  const d2=c.s2&&c.s2!==''&&c.s2!=='Ainda Não Enviada';
-  if(!d1&&c.t1)return{tipo:45,dias:daysTo(c.t1),term:c.t1};
-  if(d1&&!d2&&c.t2)return{tipo:90,dias:daysTo(c.t2),term:c.t2};
-  return null;
+function isDone(status){
+  if(!status||status.trim()==='') return false;
+  const s=status.trim().toUpperCase();
+  return s==='OK'||s==='CONCLUÍDA'||s==='CONCLUIDA'||s==='ENVIADA'||s.includes('OK');
 }
+
 function renderDash(){
-  const pend=[],done=[];
-  S.colabs.forEach(c=>{const p=getPend(c);p?pend.push({...c,_p:p}):done.push(c);});
-  pend.sort((a,b)=>a._p.dias-b._p.dias);
+  // Build flat list: each colab generates up to 2 rows (45d + 90d)
+  const rows=[];
+  S.colabs.forEach(c=>{
+    // Avaliação 45 dias
+    if(c.t1){
+      const dias=daysTo(c.t1);
+      const done=isDone(c.s1);
+      rows.push({...c,_tipo:45,_term:c.t1,_dias:dias,_done:done,_status:c.s1,_col:'Status 1'});
+    }
+    // Avaliação 90 dias
+    if(c.t2){
+      const dias=daysTo(c.t2);
+      const done=isDone(c.s2);
+      rows.push({...c,_tipo:90,_term:c.t2,_dias:dias,_done:done,_status:c.s2,_col:'Status 2'});
+    }
+  });
+
+  const pend=rows.filter(r=>!r._done).sort((a,b)=>a._dias-b._dias);
+  const done=rows.filter(r=>r._done);
+  const urgent=pend.filter(r=>r._dias<=7);
+
   document.getElementById('stT').textContent=S.colabs.length;
   document.getElementById('stP').textContent=pend.length;
-  document.getElementById('stU').textContent=pend.filter(c=>c._p.dias<=7).length;
+  document.getElementById('stU').textContent=urgent.length;
   document.getElementById('bdP').textContent=pend.length;
   document.getElementById('bdD').textContent=done.length;
+
+  // Pending list
   const pl=document.getElementById('lPend');
   pl.innerHTML=pend.length?pend.map(c=>{
-    const p=c._p;
-    const cls=p.dias<=3?'urg':p.dias<=7?'wrn':'';
-    const cc=p.dias<=3?'ch-red':p.dias<=7?'ch-amb':'ch-gr';
-    const dt=p.dias<0?'⚠ Vencida':p.dias===0?'Hoje':p.dias===1?'Amanhã':p.dias+' dias';
-    return`<div class="ccard ${cls}" onclick="openForm('${c.id}')">
+    const d=c._dias;
+    // Status color
+    let borderCls='', statusChip='', statusColor='';
+    if(d<0){
+      borderCls='urg';
+      statusChip=`<span class="chip" style="background:#3A0A0A;color:#FF6B6B;border:1px solid #5A1A1A">🔴 Vencida</span>`;
+    } else if(d<=7){
+      borderCls='wrn';
+      statusChip=`<span class="chip" style="background:#2A1A00;color:#FFB347;border:1px solid #3A2A00">🟠 ${d===0?'Hoje':d===1?'Amanhã':d+' dias'}</span>`;
+    } else {
+      borderCls='';
+      statusChip=`<span class="chip" style="background:#0A1A0A;color:#6DBF8A;border:1px solid #1A3A1A">🟡 ${d} dias</span>`;
+    }
+    return`<div class="ccard ${borderCls}" onclick="openForm('${c.id}','${c._tipo}')">
       <div class="cav">${inits(c.nome)}</div>
-      <div class="ci"><div class="cn">${c.nome}</div><div class="cm">${c.cargo} · Admissão ${fdt(c.adm)}</div></div>
-      <div class="ctags"><span class="chip ch-blu">${p.tipo} dias</span><span class="chip ${cc}">Término: ${dt}</span></div>
+      <div class="ci">
+        <div class="cn">${c.nome}</div>
+        <div class="cm">${c.cargo} · Admissão ${fdt(c.adm)}</div>
+      </div>
+      <div class="ctags">
+        <span class="chip ch-blu">${c._tipo} dias</span>
+        <span class="chip ch-gr">Término: ${fdt(c._term)}</span>
+        ${statusChip}
+      </div>
       <div class="carr">›</div>
     </div>`;
   }).join(''):'<div class="empty"><div class="ei">🎉</div><p>Nenhuma avaliação pendente!</p></div>';
+
+  // Done list
   const dl=document.getElementById('lDone');
   dl.innerHTML=done.length?done.map(c=>`
     <div class="ccard done">
       <div class="cav">${inits(c.nome)}</div>
-      <div class="ci"><div class="cn">${c.nome}</div><div class="cm">${c.cargo} · Admissão ${fdt(c.adm)}</div></div>
-      <div class="ctags"><span class="chip ch-ok">✓ Concluído</span></div>
-    </div>`).join(''):'<div class="empty"><p style="font-size:13px">Nenhum colaborador concluído ainda.</p></div>';
+      <div class="ci">
+        <div class="cn">${c.nome}</div>
+        <div class="cm">${c.cargo} · ${c._tipo} dias · Admissão ${fdt(c.adm)}</div>
+      </div>
+      <div class="ctags">
+        <span class="chip" style="background:#0A2010;color:#4ABA6A;border:1px solid #1A3020">✅ ${c._status||'OK'}</span>
+      </div>
+    </div>`).join(''):'<div class="empty"><p style="font-size:13px">Nenhum concluído ainda.</p></div>';
 }
 
 // ── FORM ──
-function openForm(id){
+function openForm(id, tipo){
   const c=S.colabs.find(x=>x.id===id);if(!c)return;
-  const p=getPend(c);if(!p)return;
-  S.cur=c;S.tipo=p.tipo;S.resp={};
-  document.getElementById('ftitle').textContent='Avaliação '+p.tipo+' dias';
+  S.cur=c;S.tipo=parseInt(tipo);S.resp={};
+  const term=S.tipo===45?c.t1:c.t2;
+  document.getElementById('ftitle').textContent='Avaliação '+S.tipo+' dias';
   document.getElementById('chav').textContent=inits(c.nome);
   document.getElementById('chname').textContent=c.nome;
-  document.getElementById('chmeta').textContent=c.cargo+' · '+c.setor+' · Admissão '+fdt(c.adm)+' · Término '+fdt(p.term);
-  document.getElementById('chbadge').textContent=p.tipo+' dias';
+  document.getElementById('chmeta').textContent=c.cargo+' · '+c.setor+' · Admissão '+fdt(c.adm)+' · Término '+fdt(term);
+  document.getElementById('chbadge').textContent=S.tipo+' dias';
   document.getElementById('fobs').value='';
   document.getElementById('rbox').style.display='none';
   renderCrits();updProg();show('form');
@@ -538,9 +581,18 @@ function finalize(){
   document.getElementById('succnc').textContent=conc;
   document.getElementById('sucpts').textContent=pts+' de '+max+' pontos';
   document.getElementById('sucmsg').textContent='Avaliação de '+S.tipo+' dias · '+S.cur.nome;
-  // mark done locally
+
+  // Atualiza localmente
   const idx=S.colabs.findIndex(c=>c.id===S.cur.id);
-  if(idx!==-1){if(S.tipo===45)S.colabs[idx].s1='Concluída';else S.colabs[idx].s2='Concluída';}
+  if(idx!==-1){if(S.tipo===45)S.colabs[idx].s1='OK';else S.colabs[idx].s2='OK';}
+
+  // Atualiza na planilha via Apps Script
+  if(S.cur._row){
+    const col=S.tipo===45?'Status 1':'Status 2';
+    const url=`${APPS_URL}?action=updateStatus&row=${S.cur._row}&col=${encodeURIComponent(col)}&value=OK`;
+    fetch(url).catch(e=>console.warn('Sheets update:',e));
+  }
+
   show('success');
 }
 
