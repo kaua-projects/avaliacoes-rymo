@@ -425,8 +425,9 @@ function parseDt(s){
   return'';
 }
 async function loadColabs(){
-  document.getElementById('lPend').innerHTML='<div class="loader"><div class="spin"></div><p>Carregando...</p></div>';
-  document.getElementById('lDone').innerHTML='<div class="loader"><div class="spin"></div></div>';
+  document.getElementById('lUrgent').innerHTML='<div class="loader"><div class="spin"></div><p>Carregando...</p></div>';
+  document.getElementById('lComing').innerHTML='';
+  document.getElementById('lDone').innerHTML='';
   try{
     const r=await fetch(APPS_URL+'?action=getData');
     const j=await r.json();
