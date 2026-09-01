@@ -491,7 +491,8 @@ async function loadColabs(){
     })).filter(c=>c.setor.toLowerCase()===S.setor.toLowerCase()&&c.empresa.toLowerCase()===S.emp.toLowerCase());
     renderDash();
   }catch(e){
-    document.getElementById('lUrgent').innerHTML='<div class="empty"><div class="ei">⚠️</div><p>Não foi possível carregar a planilha.</p></div>';
+    console.error('loadColabs error:',e);
+    document.getElementById('lUrgent').innerHTML='<div class="empty"><div class="ei">⚠️</div><p>Erro ao carregar. Tente novamente.</p></div>';
     document.getElementById('lComing').innerHTML='';
     document.getElementById('lDone').innerHTML='';
   }
@@ -549,7 +550,7 @@ function renderRanking(){
 }
 
 function renderDash(){
-  const filtroNome=(document.getElementById('filterNome')?.value||'').toLowerCase().trim();
+  const filtroNome=((document.getElementById('filterNome')||{}).value||'').toLowerCase().trim();
   const allRows=[];
   S.colabs.forEach(c=>{
     if(filtroNome&&!c.nome.toLowerCase().includes(filtroNome))return;
