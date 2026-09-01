@@ -22,7 +22,7 @@ button{cursor:pointer;font-family:'Bricolage Grotesque',sans-serif}
 input,select,textarea{font-family:'Bricolage Grotesque',sans-serif}
 .screen{display:none;min-height:100vh;flex-direction:column}
 .screen.active{display:flex}
-
+ 
 /* ── LOGIN ── */
 #s-login{align-items:center;justify-content:center;padding:24px;background:#18180F;position:relative;overflow:hidden}
 .orb{position:absolute;border-radius:50%;filter:blur(80px);animation:fl 8s ease-in-out infinite;pointer-events:none}
@@ -51,7 +51,7 @@ input,select,textarea{font-family:'Bricolage Grotesque',sans-serif}
 .lbtn{width:100%;margin-top:8px;padding:14px;border:none;border-radius:10px;background:var(--p);color:#fff;font-size:15px;font-weight:700;transition:all .2s}
 .lbtn:hover{filter:brightness(1.1);transform:translateY(-1px)}
 .lerr{margin-top:10px;font-size:12px;color:#FF8A8A;text-align:center;display:none}
-
+ 
 /* ── TOPBAR ── */
 .topbar{background:var(--sur);border-bottom:1px solid var(--bor);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:var(--sh)}
 .tb-l{display:flex;align-items:center;gap:10px}
@@ -68,7 +68,7 @@ input,select,textarea{font-family:'Bricolage Grotesque',sans-serif}
 .dktog.on{background:var(--p)}
 .dktog::after{content:'';position:absolute;width:13px;height:13px;background:#fff;border-radius:50%;top:3px;left:3px;transition:transform .2s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
 .dktog.on::after{transform:translateX(15px)}
-
+ 
 /* ── DASHBOARD ── */
 .page{padding:24px 28px 60px;max-width:960px;margin:0 auto;width:100%}
 .hero{background:linear-gradient(135deg,var(--pd),var(--p));border-radius:18px;padding:24px 28px;margin-bottom:20px;color:#fff;position:relative;overflow:hidden;box-shadow:var(--shm)}
@@ -91,7 +91,7 @@ input,select,textarea{font-family:'Bricolage Grotesque',sans-serif}
 .ch-gr{background:var(--bg);color:var(--mu);border:1px solid var(--bor)}
 .ch-ok{background:#DCFCE7;color:var(--ok)}
 .clist{display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
-.ccard{background:var(--sur);border:1px solid var(--bor);border-left:3px solid transparent;border-radius:var(--rn);padding:14px 18px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:all .18s;box-shadow:var(--sh)}
+.ccard{background:var(--sur);border:1px solid var(--bor);border-left:3px solid transparent;border-radius:var(--rn);padding:14px 18px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:all .18s;box-shadow:var(--sh);overflow:hidden}
 .ccard:hover{box-shadow:var(--shm);border-color:var(--p);transform:translateX(2px)}
 .ccard.urg{border-left-color:var(--danger)}
 .ccard.wrn{border-left-color:var(--warn)}
@@ -101,7 +101,7 @@ input,select,textarea{font-family:'Bricolage Grotesque',sans-serif}
 .ci{flex:1;min-width:0}
 .cn{font-size:14px;font-weight:700;color:var(--tx);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .cm{font-size:12px;color:var(--mu);margin-top:2px}
-.ctags{display:flex;gap:6px;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end}
+.ctags{display:flex;gap:6px;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end;max-width:220px}
 .carr{color:var(--su);font-size:20px;flex-shrink:0;transition:all .15s}
 .ccard:hover .carr{color:var(--p);transform:translateX(3px)}
 .empty{text-align:center;padding:36px 20px;color:var(--mu)}
@@ -109,7 +109,7 @@ input,select,textarea{font-family:'Bricolage Grotesque',sans-serif}
 .loader{text-align:center;padding:36px 20px;color:var(--mu)}
 .spin{width:24px;height:24px;border:2px solid var(--bor);border-top-color:var(--p);border-radius:50%;animation:sp .7s linear infinite;margin:0 auto 10px}
 @keyframes sp{to{transform:rotate(360deg)}}
-
+ 
 /* ── FORM ── */
 .ftopbar{background:var(--sur);border-bottom:1px solid var(--bor);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:var(--sh)}
 .btnbk{background:none;border:none;font-size:13px;color:var(--mu);display:flex;align-items:center;gap:5px;padding:6px 0;transition:color .15s}
@@ -160,7 +160,7 @@ input,select,textarea{font-family:'Bricolage Grotesque',sans-serif}
 .btnmain{width:100%;padding:15px;border:none;border-radius:var(--rn);background:linear-gradient(135deg,var(--p),var(--pd));color:#fff;font-size:15px;font-weight:700;transition:all .2s;box-shadow:0 4px 14px rgba(0,0,0,.12)}
 .btnmain:hover:not(:disabled){filter:brightness(1.08);transform:translateY(-1px)}
 .btnmain:disabled{background:var(--bor);color:var(--mu);cursor:not-allowed;transform:none;box-shadow:none}
-
+ 
 /* ── SUCCESS ── */
 #s-success{align-items:center;justify-content:center;background:var(--bg);padding:24px}
 .sucwrap{background:var(--sur);border:1px solid var(--bor);border-radius:22px;max-width:520px;width:100%;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.1)}
@@ -180,7 +180,7 @@ input,select,textarea{font-family:'Bricolage Grotesque',sans-serif}
 .btnpdf:disabled{background:var(--bor);color:var(--mu);cursor:not-allowed;transform:none}
 .btnsec{padding:13px 18px;border:1.5px solid var(--bor);border-radius:10px;background:transparent;color:var(--mu);font-size:14px;font-weight:600;transition:all .15s}
 .btnsec:hover{background:var(--bg);color:var(--tx)}
-
+ 
 @media(max-width:600px){
   .page,.fpage{padding:16px 14px 50px}
   .topbar,.ftopbar{padding:0 14px}
@@ -191,10 +191,41 @@ input,select,textarea{font-family:'Bricolage Grotesque',sans-serif}
   .chbadge{margin-left:0}
   .sucacts{flex-direction:column}
 }
+.hidden{display:none!important}
+.filter-nome{
+  width:100%;padding:10px 14px;
+  border:1px solid var(--bor);border-radius:10px;
+  font-family:inherit;font-size:13px;color:var(--tx);
+  background:var(--sur);outline:none;
+  transition:border-color .15s;margin-bottom:12px;
+}
+.filter-nome:focus{border-color:var(--p)}
+.filter-nome::placeholder{color:var(--su)}
+.ranking-item{
+  display:flex;align-items:center;gap:12px;
+  padding:11px 18px;border-bottom:1px solid var(--bor);
+}
+.ranking-item:last-child{border-bottom:none}
+.ranking-num{
+  width:26px;height:26px;border-radius:50%;
+  background:var(--pl);color:var(--pd);
+  font-size:11px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.ranking-num.r1{background:linear-gradient(135deg,#F59E0B,#D97706);color:#fff}
+.ranking-num.r2{background:linear-gradient(135deg,#9CA3AF,#6B7280);color:#fff}
+.ranking-num.r3{background:linear-gradient(135deg,#CD7C3A,#A0522D);color:#fff}
+.ranking-info{flex:1;min-width:0}
+.ranking-name{font-size:13px;font-weight:700;color:var(--tx);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ranking-meta{font-size:11px;color:var(--mu);margin-top:2px}
+.ranking-pct{font-size:18px;font-weight:800;color:var(--p);flex-shrink:0}
+.ranking-tabs{display:flex;gap:4px;padding:14px 18px 0}
+.rtab{flex:1;padding:8px;border:none;border-radius:8px;font-family:inherit;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;background:var(--bg);color:var(--mu);border:1px solid var(--bor)}
+.rtab.active{background:var(--p);color:#fff;border-color:var(--p)}
 </style>
 </head>
 <body>
-
+ 
 <!-- LOGIN -->
 <div class="screen active" id="s-login">
   <div class="orb orb1"></div><div class="orb orb2"></div><div class="grid"></div>
@@ -220,7 +251,7 @@ input,select,textarea{font-family:'Bricolage Grotesque',sans-serif}
     </div>
   </div>
 </div>
-
+ 
 <!-- DASHBOARD -->
 <div class="screen" id="s-dash">
   <div class="topbar">
@@ -242,7 +273,10 @@ input,select,textarea{font-family:'Bricolage Grotesque',sans-serif}
       <div class="stat"><div class="stat-ic ic-amb">📋</div><div><div class="stat-v" id="stP">—</div><div class="stat-l">A Vencer (>7 dias)</div></div></div>
       <div class="stat"><div class="stat-ic ic-blu">👥</div><div><div class="stat-v" id="stT">—</div><div class="stat-l">No setor</div></div></div>
     </div>
-
+ 
+    <!-- FILTRO NOME -->
+    <input type="text" class="filter-nome" id="filterNome" placeholder="🔍 Filtrar por nome do colaborador..." oninput="renderDash()"/>
+ 
     <!-- TABS -->
     <div style="display:flex;gap:4px;background:var(--bg);border:1px solid var(--bor);border-radius:12px;padding:4px;margin-bottom:14px">
       <button onclick="setTab('urgent')" id="tab-urgent" style="flex:1;padding:9px;border:none;border-radius:9px;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;background:linear-gradient(135deg,var(--p),var(--pd));color:#fff;">
@@ -255,13 +289,25 @@ input,select,textarea{font-family:'Bricolage Grotesque',sans-serif}
         ✅ Concluídas <span id="bdD" style="background:var(--bor);padding:1px 7px;border-radius:99px;font-size:11px;margin-left:4px">0</span>
       </button>
     </div>
-
+ 
     <div class="clist" id="lUrgent"></div>
     <div class="clist hidden" id="lComing"></div>
     <div class="clist hidden" id="lDone"></div>
+ 
+    <!-- RANKING -->
+    <div style="background:var(--sur);border:1px solid var(--bor);border-radius:var(--rn);overflow:hidden;box-shadow:var(--sh);margin-top:8px">
+      <div style="padding:14px 18px;border-bottom:1px solid var(--bor);display:flex;align-items:center;justify-content:space-between">
+        <div><div style="font-size:13px;font-weight:700;color:var(--tx)">🏆 Ranking de Avaliações</div><div style="font-size:11px;color:var(--mu);margin-top:2px">Por pontuação final</div></div>
+      </div>
+      <div class="ranking-tabs">
+        <button class="rtab active" id="rtab45" onclick="setRankTab(45)">45 Dias</button>
+        <button class="rtab" id="rtab90" onclick="setRankTab(90)">90 Dias</button>
+      </div>
+      <div id="rankingList" style="padding:8px 0;max-height:300px;overflow-y:auto"></div>
+    </div>
   </div>
 </div>
-
+ 
 <!-- FORM -->
 <div class="screen" id="s-form">
   <div class="ftopbar">
@@ -294,7 +340,7 @@ input,select,textarea{font-family:'Bricolage Grotesque',sans-serif}
     <button class="btnmain" id="btnfin" disabled onclick="finalize()">Finalizar e Enviar Avaliação →</button>
   </div>
 </div>
-
+ 
 <!-- SUCCESS -->
 <div class="screen" id="s-success">
   <div class="sucwrap">
@@ -316,11 +362,11 @@ input,select,textarea{font-family:'Bricolage Grotesque',sans-serif}
     </div>
   </div>
 </div>
-
+ 
 <script>
 // ── CONFIG ──
 const APPS_URL = 'https://script.google.com/macros/s/AKfycbyVZE1wYSw0hBX5OL5fYpooyGCo_QuKE_XK1oX9-XcJwd2NrFEHHwyj1KeAiYqlqDBOVQ/exec';
-
+ 
 const EMPS = {
   rymo:{label:'Rymo',setores:['Administrativo','Marketing','Loja','Comercial','Compras','Estoque','Expedição'],pw:'rymo2024'},
   mma:{label:'MMA',setores:['Administrativo','Produção'],pw:'mma2024'}
@@ -330,7 +376,7 @@ const PESOS=[4,3,2,1];
 const LABELS=['Supera as Expectativas','Atende às Expectativas','Necessita de Desenvolvimento','Não Atende às Expectativas'];
 const LSHORT=['Supera','Atende','Necessita Dev.','Não Atende'];
 const TCLS=['ts','ta','tn','tx2'];
-
+ 
 const C45=[
   {id:'c1',t:'Assiduidade e Pontualidade',d:'Compromisso com horários, presença e jornada.',o:['Frequência e pontualidade excelentes.','Cumpre horários, raros atrasos justificados.','Atrasos ocasionais que exigem atenção.','Atrasos frequentes e faltas injustificadas.']},
   {id:'c2',t:'Qualidade e Produtividade',d:'Execução das tarefas com atenção e precisão.',o:['Alto padrão, supera o esperado.','Qualidade adequada e produtividade satisfatória.','Falhas pontuais ou necessidade de retrabalho.','Erros frequentes que comprometem a produtividade.']},
@@ -351,10 +397,10 @@ const C90=[
   {id:'c7',t:'Aderência à Cultura (2CHIOR)',d:'Alinhamento com missão, visão e cultura.',o:['Pratica valores, sendo exemplo positivo.','Adapta-se bem com alinhamento satisfatório.','Necessita orientação para fortalecer integração.','Resistência às normas e comportamento desalinhado.']},
   {id:'c8',t:'Potencial de Desenvolvimento',d:'Capacidade de evolução e crescimento.',o:['Forte potencial e maturidade profissional.','Bom potencial compatível com a função.','Potencial presente, necessita amadurecimento.','Sem evolução compatível nem potencial claro.']}
 ];
-
+ 
 // ── STATE ──
 let S={emp:'rymo',setor:'',gestor:'',colabs:[],cur:null,tipo:null,resp:{},score:0,conc:''};
-
+ 
 // ── DARK MODE ──
 function darkMode(){
   const on=document.body.classList.toggle('dark');
@@ -368,10 +414,10 @@ window.addEventListener('load',()=>{
     document.querySelectorAll('.dktog').forEach(b=>b.classList.add('on'));
   }
 });
-
+ 
 // ── SCREEN ──
 function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('s-'+id).classList.add('active');window.scrollTo(0,0);}
-
+ 
 // ── LOGIN ──
 function setEmp(e){
   S.emp=e;
@@ -399,7 +445,7 @@ function login(){
   initDash();show('dash');
 }
 function logout(){S.colabs=[];S.cur=null;document.getElementById('lSenha').value='';show('login');}
-
+ 
 // ── DASHBOARD ──
 function initDash(){
   const emp=EMPS[S.emp];
@@ -450,55 +496,78 @@ async function loadColabs(){
     document.getElementById('lDone').innerHTML='';
   }
 }
-
+ 
 function isDone(status){
   if(!status||status.trim()==='') return false;
   const s=status.trim().toUpperCase();
   return s==='OK'||s==='CONCLUÍDA'||s==='CONCLUIDA'||s==='ENVIADA'||s.includes('OK');
 }
-
+ 
 let currentTab='urgent';
 function setTab(tab){
   currentTab=tab;
   ['urgent','coming','done'].forEach(t=>{
     const el=document.getElementById('l'+t.charAt(0).toUpperCase()+t.slice(1));
     const btn=document.getElementById('tab-'+t);
+    if(!el||!btn)return;
     if(t===tab){
       el.classList.remove('hidden');
       btn.style.background='linear-gradient(135deg,var(--p),var(--pd))';
-      btn.style.color='#fff';
-      btn.style.fontWeight='700';
-      const sp=btn.querySelector('span');
-      if(sp){sp.style.background='rgba(255,255,255,.25)';}
+      btn.style.color='#fff';btn.style.fontWeight='700';
     } else {
       el.classList.add('hidden');
       btn.style.background='transparent';
-      btn.style.color='var(--mu)';
-      btn.style.fontWeight='600';
-      const sp=btn.querySelector('span');
-      if(sp){sp.style.background='var(--bor)';}
+      btn.style.color='var(--mu)';btn.style.fontWeight='600';
     }
   });
 }
-
+function setRankTab(tipo){
+  currentRankTab=tipo;
+  document.getElementById('rtab45').classList.toggle('active',tipo===45);
+  document.getElementById('rtab90').classList.toggle('active',tipo===90);
+  renderRanking();
+}
+ 
+function renderRanking(){
+  const done=[];
+  S.colabs.forEach(c=>{
+    if(currentRankTab===45&&isDone(c.s1)&&c._pct45!==undefined) done.push({nome:c.nome,cargo:c.cargo,pct:c._pct45,pts:c._pts45,max:c._max45});
+    if(currentRankTab===90&&isDone(c.s2)&&c._pct90!==undefined) done.push({nome:c.nome,cargo:c.cargo,pct:c._pct90,pts:c._pts90,max:c._max90});
+  });
+  done.sort((a,b)=>b.pct-a.pct);
+  const el=document.getElementById('rankingList');
+  if(!el)return;
+  el.innerHTML=done.length?done.map((c,i)=>`
+    <div class="ranking-item">
+      <div class="ranking-num ${i===0?'r1':i===1?'r2':i===2?'r3':''}">${i+1}</div>
+      <div class="ranking-info">
+        <div class="ranking-name">${c.nome}</div>
+        <div class="ranking-meta">${c.cargo} · ${c.pts}/${c.max} pts</div>
+      </div>
+      <div class="ranking-pct">${c.pct}%</div>
+    </div>`).join(''):'<div class="empty" style="padding:24px"><p style="font-size:13px;color:var(--mu)">Nenhuma avaliação concluída ainda.</p></div>';
+}
+ 
 function renderDash(){
+  const filtroNome=(document.getElementById('filterNome')?.value||'').toLowerCase().trim();
   const allRows=[];
   S.colabs.forEach(c=>{
+    if(filtroNome&&!c.nome.toLowerCase().includes(filtroNome))return;
     if(c.t1) allRows.push({...c,_tipo:45,_term:c.t1,_dias:daysTo(c.t1),_done:isDone(c.s1),_status:c.s1});
     if(c.t2) allRows.push({...c,_tipo:90,_term:c.t2,_dias:daysTo(c.t2),_done:isDone(c.s2),_status:c.s2});
   });
-
+ 
   const urgent=allRows.filter(r=>!r._done&&r._dias<=7).sort((a,b)=>a._dias-b._dias);
   const coming=allRows.filter(r=>!r._done&&r._dias>7).sort((a,b)=>a._dias-b._dias);
   const done=allRows.filter(r=>r._done);
-
+ 
   document.getElementById('stT').textContent=S.colabs.length;
   document.getElementById('stU').textContent=urgent.length;
   document.getElementById('stP').textContent=coming.length;
   document.getElementById('bdP').textContent=urgent.length;
   document.getElementById('bdC').textContent=coming.length;
   document.getElementById('bdD').textContent=done.length;
-
+ 
   const renderList=(list,elId,clickable)=>{
     const el=document.getElementById(elId);
     if(!list.length){
@@ -508,13 +577,16 @@ function renderDash(){
     }
     el.innerHTML=list.map(c=>{
       const d=c._dias;
-      let borderCls='', dtxt='', dtStyle='';
+      let borderCls='',dtxt='',dtStyle='';
       if(d<0){borderCls='urg';dtxt='🔴 Vencida';dtStyle='color:var(--danger);font-weight:700';}
       else if(d===0){borderCls='urg';dtxt='🔴 Hoje';dtStyle='color:var(--danger);font-weight:700';}
       else if(d<=3){borderCls='urg';dtxt='🔴 '+d+' dias';dtStyle='color:var(--danger);font-weight:700';}
       else if(d<=7){borderCls='wrn';dtxt='🟠 '+d+' dias';dtStyle='color:var(--warn);font-weight:700';}
       else{dtxt='🟡 '+d+' dias';dtStyle='color:var(--mu)';}
-      return`<div class="ccard ${borderCls}${c._done?' done':''}" ${clickable?`onclick="openForm('${c.id}',${c._tipo})"`:''}>
+ 
+      const pdfBtn=c._done?`<button onclick="event.stopPropagation();makePDFFromHistory('${c.id}',${c._tipo})" style="padding:5px 10px;border:1px solid var(--bor);border-radius:7px;font-size:11px;color:var(--mu);background:transparent;cursor:pointer;font-family:inherit;transition:all .15s" title="Baixar PDF">📄 PDF</button>`:'';
+ 
+      return`<div class="ccard ${borderCls}${c._done?' done':''}" ${clickable?`onclick="openForm('${c.id}',${c._tipo})"`:''} style="${!clickable?'cursor:default':''}"}>
         <div class="cav">${inits(c.nome)}</div>
         <div class="ci">
           <div class="cn">${c.nome}</div>
@@ -523,17 +595,30 @@ function renderDash(){
         <div class="ctags">
           <span class="chip ch-blu">${c._tipo} dias</span>
           <span style="font-size:12px;${c._done?'color:var(--ok);font-weight:700':dtStyle}">${c._done?'✅ '+(c._status||'OK'):fdt(c._term)+' · '+dtxt}</span>
+          ${pdfBtn}
         </div>
         ${clickable?'<div class="carr">›</div>':''}
       </div>`;
     }).join('');
   };
-
+ 
   renderList(urgent,'lUrgent',true);
   renderList(coming,'lComing',false);
   renderList(done,'lDone',false);
+  renderRanking();
 }
-
+ 
+function makePDFFromHistory(colabId, tipo){
+  const c=S.colabs.find(x=>x.id===colabId);
+  if(!c){alert('Dados da avaliação não disponíveis. O PDF só pode ser gerado logo após a avaliação ser preenchida nesta sessão.');return;}
+  if(!c._lastResp||c._lastTipo!==tipo){alert('O PDF completo só está disponível logo após o preenchimento da avaliação nesta sessão.\n\nPara avaliações anteriores, o relatório não fica armazenado por segurança.');return;}
+  // usa os dados salvos da última avaliação
+  const saved=S.cur;
+  S.cur=c;S.tipo=tipo;S.resp=c._lastResp;S.score=c._lastScore;S.conc=c._lastConc;
+  makePDF();
+  S.cur=saved;
+}
+ 
 // ── FORM ──
 function openForm(id, tipo){
   const c=S.colabs.find(x=>x.id===id);if(!c)return;
@@ -600,21 +685,28 @@ function finalize(){
   document.getElementById('succnc').textContent=conc;
   document.getElementById('sucpts').textContent=pts+' de '+max+' pontos';
   document.getElementById('sucmsg').textContent='Avaliação de '+S.tipo+' dias · '+S.cur.nome;
-
-  // Atualiza localmente
+ 
+  // Salva dados para PDF histórico
   const idx=S.colabs.findIndex(c=>c.id===S.cur.id);
-  if(idx!==-1){if(S.tipo===45)S.colabs[idx].s1='OK';else S.colabs[idx].s2='OK';}
-
+  if(idx!==-1){
+    if(S.tipo===45){S.colabs[idx].s1='OK';S.colabs[idx]._pct45=pct;S.colabs[idx]._pts45=pts;S.colabs[idx]._max45=max;}
+    else{S.colabs[idx].s2='OK';S.colabs[idx]._pct90=pct;S.colabs[idx]._pts90=pts;S.colabs[idx]._max90=max;}
+    S.colabs[idx]._lastResp={...S.resp};
+    S.colabs[idx]._lastTipo=S.tipo;
+    S.colabs[idx]._lastScore=pct;
+    S.colabs[idx]._lastConc=conc;
+  }
+ 
   // Atualiza na planilha via Apps Script
   if(S.cur._row){
     const col=S.tipo===45?'Status 1':'Status 2';
     const url=`${APPS_URL}?action=updateStatus&row=${S.cur._row}&col=${encodeURIComponent(col)}&value=OK`;
     fetch(url).catch(e=>console.warn('Sheets update:',e));
   }
-
+ 
   show('success');
 }
-
+ 
 // ── PDF ──
 function makePDF(){
   const btn=document.getElementById('btnpdf');
@@ -629,7 +721,7 @@ function makePDF(){
     const cor=S.emp==='rymo'?[58,127,212]:[232,103,30];
     const cord=S.emp==='rymo'?[26,74,138]:[154,58,7];
     const hc=[[74,144,51],[58,127,212],[217,119,6],[217,48,48]];
-
+ 
     // header
     doc.setFillColor(...cor);doc.rect(0,0,W,28,'F');
     doc.setFillColor(...cord);doc.rect(0,24,W,4,'F');
@@ -638,7 +730,7 @@ function makePDF(){
     doc.text('Avaliação de Desempenho Individual — '+S.tipo+' Dias',M,21);
     doc.text(new Date().toLocaleDateString('pt-BR'),W-M,21,{align:'right'});
     y=36;
-
+ 
     // info
     doc.setFillColor(245,245,243);doc.roundedRect(M,y,W-M*2,24,2,2,'F');
     doc.setDrawColor(...cor);doc.setLineWidth(.4);doc.roundedRect(M,y,W-M*2,24,2,2,'S');
@@ -647,7 +739,7 @@ function makePDF(){
     doc.text(S.cur.cargo+' · '+S.cur.setor,M+4,y+14);
     doc.text('Admissão: '+fdt(S.cur.adm)+'   Avaliador: '+S.gestor+'   Data: '+new Date().toLocaleDateString('pt-BR'),M+4,y+20);
     y+=32;
-
+ 
     // score
     doc.setFillColor(...cor);doc.roundedRect(M,y,52,15,2,2,'F');
     doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(17);doc.text(S.score+'%',M+5,y+11);
@@ -657,7 +749,7 @@ function makePDF(){
     let pts=0;lista.forEach(c=>{if(S.resp[c.id]!==undefined)pts+=PESOS[S.resp[c.id]];});
     doc.text(pts+' de '+(lista.length*4)+' pontos',M+59,y+13);
     y+=23;
-
+ 
     // criteria
     doc.setFont('helvetica','bold');doc.setFontSize(8.5);doc.setTextColor(...cor);
     doc.text('CRITÉRIOS AVALIADOS',M,y);
@@ -682,7 +774,7 @@ function makePDF(){
       y+=8;
     });
     y+=4;
-
+ 
     // obs
     const obs=document.getElementById('fobs').value.trim();
     if(obs){
@@ -693,7 +785,7 @@ function makePDF(){
       doc.splitTextToSize(obs,W-M*2-4).forEach(l=>{if(y>270){doc.addPage();y=14;}doc.text(l,M+2,y);y+=5;});
       y+=4;
     }
-
+ 
     // signatures
     if(y>245){doc.addPage();y=14;}
     doc.setFont('helvetica','bold');doc.setFontSize(8.5);doc.setTextColor(...cor);
@@ -707,7 +799,7 @@ function makePDF(){
     doc.setFont('helvetica','normal');doc.setFontSize(7.5);doc.setTextColor(100,98,90);
     doc.text('Ciente da avaliação',M,y+29);doc.text(emp.label+' · '+S.setor,W-M-74,y+29);
     y+=36;doc.text('Local e Data: _________________________________, '+new Date().toLocaleDateString('pt-BR'),M,y);
-
+ 
     // footer
     const np=doc.getNumberOfPages();
     for(let i=1;i<=np;i++){
@@ -716,7 +808,7 @@ function makePDF(){
       doc.text(emp.label+' · Gestão de Pessoas · Avaliação '+S.tipo+' Dias',M,291);
       doc.text('Pág. '+i+'/'+np,W-M,291,{align:'right'});
     }
-
+ 
     // download
     const fname='Avaliacao_'+S.tipo+'d_'+S.cur.nome.replace(/\s+/g,'_')+'_'+new Date().toLocaleDateString('pt-BR').replace(/\//g,'-')+'.pdf';
     const blob=doc.output('blob');
@@ -732,7 +824,7 @@ function makePDF(){
   }
 }
 </script>
-
+ 
 <!-- ════════════════════════════════════════
      RH DASHBOARD — SCREENS & STYLES
 ════════════════════════════════════════ -->
@@ -756,7 +848,7 @@ function makePDF(){
 .rh-lerr{margin-top:10px;font-size:12px;color:#FF8A8A;text-align:center;display:none}
 .rh-back{background:none;border:none;font-size:12px;color:rgba(255,255,255,.25);cursor:pointer;margin-top:16px;display:block;text-align:center;width:100%;transition:color .2s;font-family:inherit}
 .rh-back:hover{color:rgba(255,255,255,.5)}
-
+ 
 /* RH Dashboard */
 #s-rh-dash{background:var(--bg)}
 .rh-topbar{background:var(--sur);border-bottom:1px solid var(--bor);padding:0 28px;height:58px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:var(--sh)}
@@ -824,7 +916,7 @@ body.dark .ch-pu{background:#1e1040}
   .rh-setor-grid{grid-template-columns:1fr 1fr}
 }
 </style>
-
+ 
 <!-- RH LOGIN SCREEN -->
 <div class="screen" id="s-rh-login">
   <div class="rh-orb1"></div>
@@ -843,7 +935,7 @@ body.dark .ch-pu{background:#1e1040}
     </div>
   </div>
 </div>
-
+ 
 <!-- RH DASHBOARD SCREEN -->
 <div class="screen" id="s-rh-dash">
   <div class="rh-topbar">
@@ -864,7 +956,7 @@ body.dark .ch-pu{background:#1e1040}
       <h1 id="rhHeroTitle">Carregando dados...</h1>
       <p id="rhHeroSub">Gestão de Pessoas · Avaliações de Experiência</p>
     </div>
-
+ 
     <!-- FILTROS -->
     <div style="background:var(--sur);border:1px solid var(--bor);border-radius:var(--rn);padding:14px 20px;margin-bottom:20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;box-shadow:var(--sh)">
       <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mu)">Filtrar por:</span>
@@ -879,7 +971,7 @@ body.dark .ch-pu{background:#1e1040}
       <button onclick="rhClearFilter()" style="padding:8px 13px;border:1px solid var(--bor);border-radius:8px;font-size:12px;color:var(--mu);background:transparent;cursor:pointer;font-family:inherit">✕ Limpar</button>
       <span style="font-size:12px;color:var(--mu);margin-left:auto">Exibindo <strong id="rhFCount" style="color:var(--p)">0</strong> colaboradores</span>
     </div>
-
+ 
     <div class="rh-bstats">
       <div class="rh-bs pu"><div class="rh-bs-lbl">Total</div><div class="rh-bs-val" id="rhT">—</div><div class="rh-bs-sub">Em experiência</div></div>
       <div class="rh-bs re"><div class="rh-bs-lbl">Urgentes</div><div class="rh-bs-val" id="rhU">—</div><div class="rh-bs-sub">Vencendo em ≤7 dias</div></div>
@@ -910,7 +1002,7 @@ body.dark .ch-pu{background:#1e1040}
         <div class="rh-chart"><canvas id="rhChartTipo"></canvas></div>
       </div>
     </div>
-
+ 
     <!-- TODAS AS PENDÊNCIAS -->
     <div class="rh-card" style="margin-bottom:16px">
       <div class="rh-card-hd"><div><h2>⚠ Todas as Pendências</h2><p>Status 1 e Status 2 · Ordenadas por urgência</p></div><span class="chip ch-red" id="rhPendCount">0</span></div>
@@ -921,7 +1013,7 @@ body.dark .ch-pu{background:#1e1040}
         </table>
       </div>
     </div>
-
+ 
     <!-- CONCLUÍDAS -->
     <div class="rh-card">
       <div class="rh-card-hd"><div><h2>✅ Concluídas / Sem Pendências</h2><p>Somente avaliações com status OK</p></div><span class="chip ch-ok" id="rhDoneCount">0</span></div>
@@ -932,15 +1024,27 @@ body.dark .ch-pu{background:#1e1040}
         </table>
       </div>
     </div>
+ 
+    <!-- RANKING RH -->
+    <div class="rh-card" style="margin-top:16px">
+      <div class="rh-card-hd"><div><h2>🏆 Ranking de Avaliações</h2><p>Colaboradores avaliados por pontuação — apenas sessão atual</p></div></div>
+      <div style="display:flex;gap:4px;padding:14px 18px 0">
+        <button class="rtab active" id="rhRtab45" onclick="setRhRankTab(45)">45 Dias</button>
+        <button class="rtab" id="rhRtab90" onclick="setRhRankTab(90)">90 Dias</button>
+      </div>
+      <div id="rhRankingList" style="padding:8px 0;max-height:300px;overflow-y:auto">
+        <div class="empty" style="padding:24px"><p style="font-size:13px;color:var(--mu)">O ranking é preenchido conforme avaliações são concluídas nesta sessão.</p></div>
+      </div>
+    </div>
   </div>
 </div>
-
+ 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script>
 // ── RH CONFIG ──
 const RH_USER='rh', RH_PW='rh2024';
 let RH_DATA=[], rhCharts=[];
-
+ 
 function rhLogin(){
   const u=document.getElementById('rhUser').value.trim().toLowerCase();
   const p=document.getElementById('rhPw').value;
@@ -952,7 +1056,7 @@ function rhLogin(){
     err.style.display='block';
   }
 }
-
+ 
 function rhGetPend(c){
   const d1=isDone(c.s1);
   const d2=isDone(c.s2);
@@ -960,7 +1064,7 @@ function rhGetPend(c){
   if(d1&&!d2&&c.t2)return{tipo:90,dias:daysTo(c.t2),term:c.t2};
   return null;
 }
-
+ 
 function rhBuildRows(data){
   const rows=[];
   data.forEach(c=>{
@@ -969,7 +1073,7 @@ function rhBuildRows(data){
   });
   return rows;
 }
-
+ 
 function rhStatusBadge(dias,status){
   if(isDone(status)) return'<span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;padding:4px 10px;border-radius:99px;background:var(--okl);color:var(--ok)">✅ '+status+'</span>';
   if(dias<0)  return'<span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;padding:4px 10px;border-radius:99px;background:var(--dangerl);color:var(--danger)">🔴 Vencida</span>';
@@ -977,7 +1081,7 @@ function rhStatusBadge(dias,status){
   if(dias<=7) return'<span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;padding:4px 10px;border-radius:99px;background:#FEF0E6;color:#E07A28">🟠 Urgente · '+dias+'d</span>';
   return'<span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;padding:4px 10px;border-radius:99px;background:var(--warnl);color:var(--warn)">🟡 Pendente · '+dias+'d</span>';
 }
-
+ 
 function rhDiasTxt(d){
   if(d<0)  return'<span style="color:var(--danger);font-weight:700">Vencida</span>';
   if(d===0)return'<span style="color:var(--danger);font-weight:700">Hoje</span>';
@@ -986,7 +1090,7 @@ function rhDiasTxt(d){
   if(d<=7) return'<span style="color:#E07A28;font-weight:700">'+d+' dias</span>';
   return d+' dias';
 }
-
+ 
 async function rhLoad(){
   document.getElementById('rhUpdated').textContent='Atualizando...';
   try{
@@ -1006,14 +1110,14 @@ async function rhLoad(){
     document.getElementById('rhUpdated').textContent='Atualizado às '+new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
   }catch(e){document.getElementById('rhUpdated').textContent='Erro ao carregar';}
 }
-
+ 
 function rhFillSetores(){
   const setores=[...new Set(RH_DATA.map(r=>r.setor).filter(Boolean))].sort();
   const sel=document.getElementById('rhFSetor');
   sel.innerHTML='<option value="">Todos os setores</option>';
   setores.forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=s;sel.appendChild(o);});
 }
-
+ 
 function rhApplyFilter(){
   const emp=document.getElementById('rhFEmp').value;
   const setor=document.getElementById('rhFSetor').value;
@@ -1024,26 +1128,26 @@ function rhApplyFilter(){
   document.getElementById('rhFCount').textContent=filt.length;
   rhRender(filt);
 }
-
+ 
 function rhClearFilter(){
   document.getElementById('rhFEmp').value='';
   document.getElementById('rhFSetor').value='';
   rhApplyFilter();
 }
-
+ 
 function rhRender(data){
   if(!data) data=RH_DATA;
   const allRows=rhBuildRows(data);
   const pend=allRows.filter(r=>!r._done).sort((a,b)=>a._dias-b._dias);
   const done=allRows.filter(r=>r._done);
   const urgent=pend.filter(r=>r._dias<=7);
-
+ 
   // hero
   const h=new Date().getHours();
   const gr=h<12?'Bom dia':h<18?'Boa tarde':'Boa noite';
   document.getElementById('rhHeroTitle').textContent=gr+', RH! 👋';
   document.getElementById('rhHeroSub').textContent='Gestão de Pessoas · '+data.length+' colaboradores · '+new Date().toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'});
-
+ 
   // stats
   document.getElementById('rhT').textContent=data.length;
   document.getElementById('rhU').textContent=urgent.length;
@@ -1053,7 +1157,7 @@ function rhRender(data){
   document.getElementById('rhDoneCount').textContent=done.length;
   document.getElementById('rhPendCount').textContent=pend.length;
   document.getElementById('rhDoneCount').textContent=done.length;
-
+ 
   // alerts
   const alerts=pend.filter(r=>r._dias<=15).slice(0,12);
   document.getElementById('rhAlertCount').textContent=alerts.length;
@@ -1069,7 +1173,7 @@ function rhRender(data){
       <span class="chip ${cc}">${dt}</span>
     </div>`;
   }).join(''):'<div class="empty"><div class="ei">✅</div><p>Nenhum alerta</p></div>';
-
+ 
   // setor grid
   const setores=[...new Set(RH_DATA.map(r=>r.setor).filter(Boolean))].sort();
   document.getElementById('rhSetorCount').textContent=setores.length+' setores';
@@ -1089,7 +1193,7 @@ function rhRender(data){
       <div class="rh-bar"><div class="rh-bar-fill" style="width:${pct}%"></div></div>
     </div>`;
   }).join('');
-
+ 
   // pending table — Status 1 e Status 2 separados
   document.getElementById('rhPendTable').innerHTML=pend.length?pend.map(r=>`<tr>
     <td><strong>${r.nome}</strong></td>
@@ -1099,7 +1203,7 @@ function rhRender(data){
     <td>${rhDiasTxt(r._dias)}</td>
     <td>${rhStatusBadge(r._dias,r._status)}</td>
   </tr>`).join(''):'<tr><td colspan="8"><div class="empty"><div class="ei">🎉</div><p>Nenhuma pendência!</p></div></td></tr>';
-
+ 
   // done table — somente OK/Concluídas
   document.getElementById('rhDoneTable').innerHTML=done.length?done.map(r=>`<tr>
     <td><strong>${r.nome}</strong></td>
@@ -1108,24 +1212,24 @@ function rhRender(data){
     <td>${fdt(r._term)}</td>
     <td><span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;padding:4px 10px;border-radius:99px;background:var(--okl);color:var(--ok)">✅ ${r._status||'OK'}</span></td>
   </tr>`).join(''):'<tr><td colspan="7"><div class="empty"><p>Nenhuma avaliação concluída ainda.</p></div></td></tr>';
-
+ 
   // charts
   rhCharts.forEach(c=>{try{c.destroy()}catch(e){}});rhCharts=[];
   const isDark=document.body.classList.contains('dark');
   const gridColor=isDark?'rgba(255,255,255,.06)':'rgba(0,0,0,.06)';
   Chart.defaults.color=isDark?'#9A9890':'#706E63';
   Chart.defaults.font.family='Bricolage Grotesque';
-
+ 
   const venc=pend.filter(r=>r._dias<0).length;
   const urg=pend.filter(r=>r._dias>=0&&r._dias<=7).length;
   const norm=pend.filter(r=>r._dias>7).length;
-
+ 
   const c1=document.getElementById('rhChartStatus');
   if(c1) rhCharts.push(new Chart(c1,{type:'doughnut',data:{
     labels:['Concluídas','No Prazo (>7d)','Urgentes (≤7d)','Vencidas'],
     datasets:[{data:[done.length,norm,urg,venc],backgroundColor:['#16A34A','#D97706','#E07A28','#D93030'],borderWidth:0,hoverOffset:5}]
   },options:{responsive:true,plugins:{legend:{position:'bottom',labels:{padding:14,font:{size:11}}}},cutout:'62%'}}));
-
+ 
   const c2=document.getElementById('rhChartSetor');
   if(c2) rhCharts.push(new Chart(c2,{type:'bar',data:{
     labels:setores,
@@ -1134,7 +1238,7 @@ function rhRender(data){
       {label:'Concluídos',data:setores.map(s=>rhBuildRows(data.filter(r=>r.setor===s)).filter(r=>r._done).length),backgroundColor:'rgba(22,163,74,.8)',borderRadius:5}
     ]
   },options:{responsive:true,plugins:{legend:{position:'bottom',labels:{font:{size:11}}}},scales:{x:{grid:{color:gridColor},ticks:{font:{size:11}}},y:{grid:{color:gridColor},ticks:{font:{size:11},stepSize:1}}},interaction:{mode:'index',intersect:false}}}));
-
+ 
   const p45=pend.filter(r=>r._tipo===45).length;
   const p90=pend.filter(r=>r._tipo===90).length;
   const c3=document.getElementById('rhChartTipo');
@@ -1143,7 +1247,7 @@ function rhRender(data){
     datasets:[{data:[p45,p90],backgroundColor:['#3A7FD4','#7C3AED'],borderWidth:0,hoverOffset:5}]
   },options:{responsive:true,plugins:{legend:{position:'bottom',labels:{padding:14,font:{size:11}}}},cutout:'65%'}}));
 }
-
+ 
 // sync dark mode
 const origDark=window.darkMode;
 window.darkMode=function(){
@@ -1156,3 +1260,8 @@ if(localStorage.getItem('gp_dark')==='1') document.querySelectorAll('.dktog').fo
 </script>
 </body>
 </html>
+ 
+
+
+
+
