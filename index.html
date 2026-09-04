@@ -438,7 +438,7 @@ function login(){
   const err=document.getElementById('lerr');
   err.style.display='none';
   if(!setor||!nome){err.textContent='Preencha setor e nome.';err.style.display='block';return;}
-  const k=setor.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\s/g,'');
+  const k=setor.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[\s\.]/g,'');
   const correct=SPWS[k]||EMPS[S.emp].pw;
   if(pw!==correct&&pw!==EMPS[S.emp].pw&&pw!=='master2024'){err.textContent='Senha incorreta.';err.style.display='block';return;}
   S.setor=setor;S.gestor=nome;
@@ -1263,3 +1263,7 @@ if(localStorage.getItem('gp_dark')==='1') document.querySelectorAll('.dktog').fo
 </body>
 </html>
  
+
+
+
+
